@@ -54,8 +54,10 @@ flutter-cours-complet-fr/
 │
 ├── 📄 README.md
 │
-├── 📁 cours/                        ← 📖 LES LEÇONS (lecture + référence)
+├── 📁 cours/                            ← 📖 LES LEÇONS (fichiers .txt — lecture seule)
 │   ├── Chapitre_01_Introduction/
+│   │   ├── lecon_01_cest_quoi_flutter.txt
+│   │   └── lecon_02_architecture_projet.txt
 │   ├── Chapitre_02_Installation_Setup/
 │   ├── Chapitre_03_Widgets_Basics/
 │   ├── Chapitre_04_Layouts/
@@ -67,18 +69,23 @@ flutter-cours-complet-fr/
 │   ├── Chapitre_10_Local_Storage/
 │   ├── Chapitre_11_UI_UX/
 │   ├── Chapitre_12_Performance/
-│   ├── projets/                     ← 5 apps complètes
-│   └── resources/                   ← Cheat sheet
+│   ├── projets/                         ← 5 apps complètes (.txt)
+│   └── resources/                       ← Cheat sheet (.txt)
 │
-└── 📁 workspace/                    ← ✏️ TON ESPACE DE TRAVAIL (tu codes ici)
+└── 📁 workspace/                        ← ✏️ TON ESPACE DE TRAVAIL (projet Flutter réel)
     ├── lib/
-    │   └── main.dart                ← COLLE LES LEÇONS ICI
-    ├── pubspec.yaml                 ← Packages déjà configurés
-    └── README.md                    ← Instructions du workspace
+    │   ├── main.dart                    ← COLLE LES LEÇONS ICI
+    │   ├── screens/
+    │   ├── widgets/
+    │   ├── models/
+    │   └── services/
+    ├── assets/
+    ├── pubspec.yaml                     ← Packages déjà configurés
+    └── README.md
 ```
 
-> **`cours/`** = tu lis les leçons, tu ne modifies rien
-> **`workspace/`** = tu colles les leçons ici et tu codes
+> 📖 **`cours/`** → fichiers `.txt` à lire — **zéro erreur VS Code**
+> ✏️ **`workspace/`** → vrai projet Flutter — **tu codes ici uniquement**
 
 ---
 
@@ -93,51 +100,96 @@ git clone https://github.com/mohameden19961/flutter-cours-complet-fr.git
 cd flutter-cours-complet-fr
 ```
 
-### 2️⃣ Ouvrir dans VS Code
+---
+
+### 2️⃣ Ouvrir workspace/ dans VS Code
+
+> ⚠️ **TRÈS IMPORTANT** : Il faut ouvrir **uniquement le dossier `workspace/`**
+> et **jamais** le dossier principal `flutter-cours-complet-fr/`
 
 ```bash
-code .
+# ✅ CORRECT — ouvre uniquement le projet Flutter
+code flutter-cours-complet-fr/workspace
 ```
 
-Tu verras les deux dossiers `cours/` et `workspace/` dans l'explorateur VS Code.
+```
+# OU depuis VS Code :
+File → Open Folder → choisir le dossier workspace/
+```
 
-### 3️⃣ Installer les packages du workspace
+> ❌ **Ne pas faire** : `code flutter-cours-complet-fr` → erreurs partout
+> ✅ **Toujours** : `code flutter-cours-complet-fr/workspace` → zéro erreur
+
+---
+
+### 3️⃣ Installer les packages
 
 ```bash
-cd workspace
+# Dans workspace/
+cd flutter-cours-complet-fr/workspace
 flutter pub get
 ```
+
+---
 
 ### 4️⃣ Lancer le workspace
 
 ```bash
-# Toujours dans workspace/
 flutter run                  # Sur émulateur Android
 flutter run -d chrome        # Dans le navigateur ← recommandé pour débuter
 flutter run -d linux         # Linux Desktop
+flutter run -d macos         # macOS
+flutter run -d windows       # Windows
 ```
 
-✅ Tu dois voir l'**écran d'accueil du workspace** — c'est bon signe !
+✅ Tu dois voir l'**écran d'accueil du workspace** — tout fonctionne !
 
-### 5️⃣ Commencer la première leçon
+---
+
+### 5️⃣ Utiliser les leçons
+
+Les leçons sont dans `cours/` en format **`.txt`** — elles s'ouvrent sans aucune erreur.
 
 ```
-1. Dans VS Code, ouvre :
-   cours/Chapitre_01_Introduction/lecon_01_cest_quoi_flutter.dart
+1. Ouvre un fichier leçon depuis cours/
+   ex: cours/Chapitre_03_Widgets_Basics/lecon_01_stateless_widget.txt
 
-2. Lis la leçon
+2. Lis la leçon entièrement
 
 3. Quand tu veux tester le code :
-   → Ctrl+A (tout sélectionner)
-   → Ctrl+C (copier)
+   → Ctrl+A  (tout sélectionner)
+   → Ctrl+C  (copier)
 
 4. Ouvre workspace/lib/main.dart
-   → Ctrl+A (tout sélectionner)
-   → Ctrl+V (coller)
-   → Ctrl+S (sauvegarder)
+   → Ctrl+A  (tout sélectionner)
+   → Ctrl+V  (coller)
+   → Ctrl+S  (sauvegarder)
 
 5. L'app se met à jour automatiquement 🔥 (Hot Reload)
 ```
+
+---
+
+### ✅ Vérification — Tout fonctionne si :
+
+```
+✅ VS Code est ouvert sur workspace/ uniquement
+✅ Aucune erreur rouge dans workspace/lib/main.dart
+✅ flutter pub get exécuté avec succès
+✅ flutter run fonctionne
+✅ Ctrl+S déclenche le Hot Reload (app se met à jour)
+```
+
+---
+
+### ❓ Problèmes courants
+
+| Erreur | Cause | Solution |
+|--------|-------|----------|
+| `Target of URI doesn't exist: 'package:flutter/material.dart'` | Mauvais dossier ouvert dans VS Code | Ouvrir `workspace/` et non la racine |
+| `Undefined class 'Widget'` | Même raison | Même solution |
+| `flutter: command not found` | Flutter pas installé | Voir [flutter.dev/install](https://flutter.dev/get-started/install) |
+| `flutter pub get` échoue | Pas de connexion internet | Vérifier la connexion |
 
 ---
 
@@ -166,7 +218,7 @@ flutter run -d linux         # Linux Desktop
 
 ## 📱 Les 5 Projets Complets
 
-> Tous dans `cours/projets/` — à reproduire de zéro dans `workspace/`
+> Tous dans `cours/projets/` en `.txt` — à reproduire de zéro dans `workspace/`
 
 ### 🔵 To-Do App
 ```
@@ -222,6 +274,23 @@ avec des cartes scrollables ?"
 ❌ Sauter les exercices
 ```
 
+### 🧠 Prompts spéciaux Flutter
+
+```bash
+# Déboguer un layout
+"Mon layout ne ressemble pas à ce que je veux.
+Voici mon code [coller] et voici ce que j'attends [description].
+Qu'est-ce qui ne va pas ?"
+
+# Comprendre les rebuilds
+"Mon widget se rebuild trop souvent.
+Comment savoir lequel et comment l'optimiser ?"
+
+# State management
+"J'ai besoin de partager des données entre 2 écrans.
+Quelle solution recommandes-tu : setState, ChangeNotifier ou Provider ?"
+```
+
 ---
 
 <br/>
@@ -231,7 +300,8 @@ avec des cartes scrollables ?"
 ### 🟢 Ce qu'il FAUT faire
 
 ```
-✅ Taper le code à la main (jamais copier-coller les exercices)
+✅ Lire la leçon .txt entièrement avant de coder
+✅ Taper le code à la main dans workspace/ (jamais copier-coller les exercices)
 ✅ Faire TOUS les exercices avant de voir les solutions
 ✅ Lancer l'app à chaque modification (Hot Reload)
 ✅ Reproduire chaque projet de ZÉRO après l'avoir étudié
@@ -245,17 +315,18 @@ avec des cartes scrollables ?"
 ❌ Passer au chapitre suivant si le précédent n'est pas clair
 ❌ Regarder les solutions sans avoir essayé 20 minutes
 ❌ Commencer ce cours sans avoir fait le cours Dart
+❌ Ouvrir le dossier racine dans VS Code (erreurs partout)
 ```
 
 ### 🔄 Méthode pour chaque chapitre
 
 ```
-① Lire la leçon complète             (10 min)
-② Copier dans workspace et tester    (15 min)
-③ Modifier, expérimenter, casser     (15 min)
-④ Faire les exercices seul           (20 min)
-⑤ Comparer avec la solution          (10 min)
-⑥ Mini-projet du chapitre            (45 min)
+① Lire la leçon .txt complète            (10 min)
+② Copier dans workspace/lib/main.dart    (15 min)
+③ Modifier, expérimenter, casser         (15 min)
+④ Faire les exercices seul               (20 min)
+⑤ Comparer avec la solution              (10 min)
+⑥ Mini-projet du chapitre                (45 min)
 ```
 
 ---
@@ -306,6 +377,19 @@ avec des cartes scrollables ?"
 | Dev Flutter Senior | 70-90k€ |
 | Freelance Flutter | 400-700€/jour |
 
+### 🛤️ Prochaines technologies à apprendre
+
+```dart
+final parcoursSuite = [
+  'Firebase (Auth + Firestore)',      // 2-3 semaines
+  'Riverpod (State Management)',      // 1-2 semaines
+  'GoRouter (Navigation avancée)',    // 3-5 jours
+  'Clean Architecture Flutter',       // 2-3 semaines
+  'Flutter Testing (unit + widget)',  // 1-2 semaines
+  'CI/CD + Déploiement App Store',    // 1 semaine
+];
+```
+
 ---
 
 <br/>
@@ -324,6 +408,25 @@ Semaine 6+ : "Je me sens développeur Flutter"
 ```
 
 Chaque développeur Flutter que tu admires est passé par exactement les mêmes blocages. La différence ? **Ils ont continué.**
+
+### 🎯 Ton Engagement
+
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│  Je m'engage à :                            │
+│                                             │
+│  ✊ Coder 1h minimum par jour              │
+│  ✊ Finir chaque chapitre avant d'avancer  │
+│  ✊ Construire les 5 projets               │
+│  ✊ Continuer même quand c'est difficile   │
+│  ✊ Partager ce cours si il m'aide         │
+│                                             │
+│  Signé : ___________________               │
+│  Date  : ___________________               │
+│                                             │
+└─────────────────────────────────────────────┘
+```
 
 ---
 
