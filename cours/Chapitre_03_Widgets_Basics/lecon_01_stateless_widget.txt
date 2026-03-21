@@ -21,7 +21,7 @@
 // dans lib/main.dart et remplace le contenu.
 // ─────────────────────────────────────────────────────────────
 
-import 'package:flutter/material.dart';
+//import 'package:flutter/material.dart';
 
 // ============================================================
 // 📖 PARTIE 1 : QU'EST-CE QU'UN WIDGET ?
