@@ -1,0 +1,48 @@
+name: workspace
+description: Espace de travail pour le Cours Flutter Complet en Français
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # ── Packages utilisés dans le cours ──────────────────────
+  http: ^1.1.0                    # Chapitre 08 — Requêtes API
+  shared_preferences: ^2.2.2      # Chapitre 10 — Stockage simple
+  provider: ^6.1.1                # Chapitre 07 — State Management
+
+  # ── Packages bonus (décommente si besoin) ────────────────
+  # sqflite: ^2.3.0               # Base de données SQLite
+  # path: ^1.8.3                  # Chemins de fichiers
+  # cached_network_image: ^3.3.0  # Cache images réseau
+  # go_router: ^12.0.0            # Navigation avancée
+  # flutter_riverpod: ^2.4.9      # State management avancé
+  # dio: ^5.3.3                   # HTTP avancé
+  # lottie: ^2.7.0                # Animations Lottie
+  # fl_chart: ^0.65.0             # Graphiques
+  # intl: ^0.18.1                 # Dates et localisation
+
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Décommente pour utiliser des assets (images, fonts)
+  # assets:
+  #   - assets/images/
+
+  # fonts:
+  #   - family: Poppins
+  #     fonts:
+  #       - asset: assets/fonts/Poppins-Regular.ttf
+  #       - asset: assets/fonts/Poppins-Bold.ttf
+  #         weight: 700
