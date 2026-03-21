@@ -41,7 +41,7 @@
 | 6 | [📏 Méthode](#-méthode-dapprentissage) | Comment étudier |
 | 7 | [⏱ Durée](#-durée-estimée) | Planning hebdomadaire |
 | 8 | [🚀 Après ce Cours](#-après-ce-cours) | Carrière & prochaines étapes |
-| 9 | [🛠 Installation](#-installation-rapide) | Démarrer en 5 minutes |
+| 9 | [🛠 Installation](#-installation--configuration-vs-code) | Clone + Setup VS Code |
 | 10 | [💡 Motivation](#-section-motivation) | Ne jamais abandonner |
 
 ---
@@ -477,32 +477,137 @@ final parcoursSuite = [
 
 <br/>
 
-## 🛠 Installation Rapide
+## 🛠 Installation & Configuration VS Code
 
-### ⚡ En 5 étapes
+> ⚠️ **IMPORTANT** : Les fichiers `.dart` de ce cours ne s'ouvrent PAS directement dans VS Code.
+> Il faut d'abord créer un **vrai projet Flutter**, puis copier les leçons dedans.
+> Voici exactement comment faire, étape par étape.
+
+---
+
+### ÉTAPE 1 — Cloner le cours
 
 ```bash
-# 1. Installer Flutter SDK
-# → Windows : https://docs.flutter.dev/get-started/install/windows
-# → macOS   : brew install --cask flutter
-# → Linux   : sudo snap install flutter --classic
-
-# 2. Vérifier l'installation
-flutter doctor
-
-# 3. Installer VS Code + Extensions Dart + Flutter
-# → code.visualstudio.com → Extensions → "Flutter"
-
-# 4. Créer un émulateur Android Studio
-# → Android Studio → More Actions → Virtual Device Manager
-
-# 5. Lancer ton premier projet
-flutter create ma_premiere_app
-cd ma_premiere_app
-flutter run
+git clone https://github.com/mohameden19961/flutter-cours-complet-fr.git
+cd flutter-cours-complet-fr
 ```
 
-> 💡 **Pas d'installation ?** Utilise [dartpad.dev](https://dartpad.dev) pour les premiers chapitres !
+---
+
+### ÉTAPE 2 — Créer ton projet Flutter de travail
+
+```bash
+# Dans le dossier de ton choix (PAS dans le repo cloné)
+flutter create mon_espace_travail
+cd mon_espace_travail
+```
+
+Tu obtiens cette structure :
+```
+mon_espace_travail/
+├── lib/
+│   └── main.dart   ← C'est ICI que tu travailles
+├── pubspec.yaml
+└── ...
+```
+
+---
+
+### ÉTAPE 3 — Ouvrir dans VS Code correctement
+
+```bash
+# Ouvrir le PROJET Flutter (pas le dossier du cours)
+code mon_espace_travail
+```
+
+> ✅ **Bonne façon** → `code mon_espace_travail` (le projet Flutter)
+> ❌ **Mauvaise façon** → ouvrir directement `flutter-cours-complet-fr` dans VS Code
+
+---
+
+### ÉTAPE 4 — Utiliser les leçons du cours
+
+Pour chaque leçon, **copie le contenu** du fichier `.dart` du cours dans `lib/main.dart` de ton projet :
+
+```
+flutter-cours-complet-fr/          mon_espace_travail/
+├── Chapitre_03_Widgets_Basics/    ├── lib/
+│   └── lecon_01_stateless_widget.dart  →  COPIER le contenu dans → main.dart
+```
+
+**Dans VS Code :**
+1. Ouvre la leçon dans `flutter-cours-complet-fr/`
+2. Sélectionne tout → `Ctrl+A`
+3. Copie → `Ctrl+C`
+4. Ouvre `mon_espace_travail/lib/main.dart`
+5. Sélectionne tout → `Ctrl+A`
+6. Colle → `Ctrl+V`
+7. Sauvegarde → `Ctrl+S` ← **Hot Reload automatique !**
+
+---
+
+### ÉTAPE 5 — Lancer l'application
+
+```bash
+# Dans mon_espace_travail/
+flutter run                  # Sur émulateur/téléphone
+flutter run -d chrome        # Dans le navigateur (plus simple)
+flutter run -d linux         # Sur Linux Desktop
+```
+
+---
+
+### ÉTAPE 6 — Extensions VS Code obligatoires
+
+Ouvre VS Code → `Ctrl+Shift+X` → Installe ces extensions :
+
+| Extension | Éditeur | Pourquoi |
+|-----------|---------|----------|
+| **Flutter** | Dart Code | ✅ Obligatoire |
+| **Dart** | Dart Code | ✅ Obligatoire |
+| **Error Lens** | Alexander | Erreurs inline |
+| **Flutter Snippets** | Alexis Coulombe | Raccourcis de code |
+
+---
+
+### 🗂️ Organisation de travail recommandée
+
+```
+Bureau/
+├── 📁 flutter-cours-complet-fr/   ← Le cours (référence, lecture seule)
+│   ├── Chapitre_01_Introduction/
+│   ├── Chapitre_02_Installation/
+│   └── ...
+│
+└── 📁 mon_espace_travail/          ← Ton projet Flutter (tu codes ici)
+    └── lib/
+        └── main.dart               ← Tu colles les leçons ici
+```
+
+---
+
+### ✅ Vérification — Tout fonctionne si :
+
+```
+✅ VS Code est ouvert sur "mon_espace_travail"
+✅ Aucune erreur rouge dans main.dart
+✅ L'émulateur ou le navigateur est lancé
+✅ flutter run tourne dans le terminal
+✅ Ctrl+S déclenche le Hot Reload (app se met à jour)
+```
+
+---
+
+### ❓ Problèmes courants
+
+| Erreur | Cause | Solution |
+|--------|-------|----------|
+| `Target of URI doesn't exist: 'package:flutter/material.dart'` | Fichier ouvert hors projet Flutter | Ouvrir `mon_espace_travail` dans VS Code |
+| `Undefined class 'Widget'` | Même raison | Même solution |
+| `flutter: command not found` | Flutter pas installé | Voir [flutter.dev/install](https://flutter.dev/get-started/install) |
+| Écran blanc sur émulateur | Erreur dans le code | Vérifier le terminal pour les détails |
+
+> 💡 **Pas d'installation ?** Utilise [dartpad.dev](https://dartpad.dev) pour les chapitres 1 et 2 !
 
 ---
 
