@@ -4,6 +4,7 @@
 
 ```bash
 git clone https://github.com/mohameden19961/flutter-cours-complet-fr.git
+
 cd flutter-cours-complet-fr/workspace
 flutter pub get && flutter run
 ```

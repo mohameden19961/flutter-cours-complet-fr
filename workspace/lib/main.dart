@@ -136,7 +136,8 @@ class EcranAccueil extends StatelessWidget {
                     _Etape(
                       numero: '1',
                       texte: 'Ouvre un fichier dans cours/',
-                      detail: 'ex: Chapitre_03.../lecon_01_stateless_widget.dart',
+                      detail:
+                          'ex: Chapitre_03.../lecon_01_stateless_widget.dart',
                     ),
                     _Etape(
                       numero: '2',
